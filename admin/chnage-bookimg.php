@@ -22,13 +22,9 @@ $extension = substr($bookimg,strlen($bookimg)-4,strlen($bookimg));
 $allowed_extensions = array(".jpg","jpeg",".png",".gif");
 // Validation for allowed extensions .in_array() function searches an array for a specific value.
 //rename the image file
-// $imgnewname=\sha256($bookimg.time()).$extension;
-// // Code for move image into directory
-// move_uploaded_file($_FILES["bookpic"]["tmp_name"],"bookimg/".$imgnewname);
-$ext = pathinfo($_FILES['fileToUpload'], PATHINFO_EXTENSION);
-$new_file_name = \sha256($bookimg.time()).$extension;
-move_uploaded_file($_FILES["bookpic"]["tmp_name"], 'bookimg/'.$new_file_name.'.'.$ext);
-
+$imgnewname=\sha256($bookimg.time()).$extension;
+// Code for move image into directory
+move_uploaded_file(basename($_FILES["bookpic"]["tmp_name"],"bookimg/".$imgnewname));
 if(!in_array($extension,$allowed_extensions))
 {
 echo "<script>alert('Invalid format. Only jpg / jpeg/ png /gif format allowed');</script>";
