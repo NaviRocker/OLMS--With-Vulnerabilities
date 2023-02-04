@@ -22,7 +22,7 @@ $extension = substr($bookimg,strlen($bookimg)-4,strlen($bookimg));
 $allowed_extensions = array(".jpg","jpeg",".png",".gif");
 // Validation for allowed extensions .in_array() function searches an array for a specific value.
 //rename the image file
-$imgnewname=md5($bookimg.time()).$extension;
+$imgnewname=\sha256($bookimg.time()).$extension;
 // Code for move image into directory
 
 if(!in_array($extension,$allowed_extensions))

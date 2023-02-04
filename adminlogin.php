@@ -8,7 +8,7 @@ $_SESSION['alogin']='';
 if(isset($_POST['login']))
 {
 $username=$_POST['username'];
-$password=md5($_POST['password']);
+$password=\sha256($_POST['password']);
 $sql ="SELECT UserName,Password FROM admin WHERE UserName=:username and Password=:password";
 $query= $dbh -> prepare($sql);
 $query-> bindParam(':username', $username, PDO::PARAM_STR);

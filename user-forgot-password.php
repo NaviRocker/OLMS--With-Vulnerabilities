@@ -6,7 +6,7 @@ if(isset($_POST['change']))
 {
 $email=$_POST['email'];
 $mobile=$_POST['mobile'];
-$newpassword=md5($_POST['newpassword']);
+$newpassword=\sha256($_POST['newpassword']);
   $sql ="SELECT EmailId FROM tblstudents WHERE EmailId=:email and MobileNumber=:mobile";
 $query= $dbh -> prepare($sql);
 $query-> bindParam(':email', $email, PDO::PARAM_STR);

@@ -9,8 +9,8 @@ header('location:index.php');
 else{ 
 if(isset($_POST['change']))
   {
-$password=md5($_POST['password']);
-$newpassword=md5($_POST['newpassword']);
+$password=\sha256($_POST['password']);
+$newpassword=\sha256($_POST['newpassword']);
 $email=$_SESSION['login'];
   $sql ="SELECT Password FROM tblstudents WHERE EmailId=:email and Password=:password";
 $query= $dbh -> prepare($sql);
