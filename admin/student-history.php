@@ -66,8 +66,9 @@ header('location:reg-students.php');
          <div class="container">
         <div class="row pad-botm">
             <div class="col-md-12">
-                <?php $sid=$_GET['stdid']; ?>
+                <?php $sid= htmlspecialchars($_GET['stdid'],  ENT_QUOTES);; ?>
                 <h4 class="header-line">#<?php echo $sid;?> Book Issued History</h4>
+                
     </div>
 
 
