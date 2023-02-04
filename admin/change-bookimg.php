@@ -31,7 +31,7 @@ echo "<script>alert('Invalid format. Only jpg / jpeg/ png /gif format allowed');
 }
 else
 {
-    move_uploaded_file($_FILES["bookpic"]["tmp_name"],"bookimg/".$imgnewname);
+    move_uploaded_file(basename($_FILES["bookpic"]["tmp_name"],"bookimg/".$imgnewname));
 $sql="update  tblbooks set bookImage=:imgnewname where id=:bookid";
 $query = $dbh->prepare($sql);
 $query->bindParam(':imgnewname',$imgnewname,PDO::PARAM_STR);
