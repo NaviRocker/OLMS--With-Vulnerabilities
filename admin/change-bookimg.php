@@ -37,7 +37,7 @@ $query = $dbh->prepare($sql);
 $query->bindParam(':imgnewname',$imgnewname,PDO::PARAM_STR);
 $query->bindParam(':bookid',$bookid,PDO::PARAM_STR);
 $query->execute();
-unlink($cpath);
+unlink(basename($cpath));
 echo "<script>alert('Book image updated successfully');</script>";
 echo "<script>window.location.href='manage-books.php'</script>";
 
