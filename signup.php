@@ -30,7 +30,7 @@ $query->execute();
 $lastInsertId = $dbh->lastInsertId();
 if($lastInsertId)
 {
-echo '<script>alert("Your Registration successfull and your student id is  "+"'.$StudentId.'")</script>';
+echo htmlspecialchars('<script>alert("Your Registration successfull and your student id is  "+"'.$StudentId.'")</script>',  ENT_QUOTES);
 }
 else 
 {
